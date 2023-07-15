@@ -3,7 +3,7 @@ import TListingFilter, {
 	TListingReturnFilter,
 } from '@/types/ListingFilter';
 import SSRreq from '@/types/SSRreq';
-import SSRHeaders from '@/utils/ssrHeaders';
+import SSRHeaders from '@/lib/ssrHeaders';
 
 export default async function getFilteredListings(
 	filter: TListingFilter,

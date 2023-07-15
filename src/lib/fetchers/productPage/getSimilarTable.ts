@@ -3,11 +3,11 @@ import type {
 	TListingReturnFilter,
 } from '@/types/ListingFilter';
 import SSRreq from '@/types/SSRreq';
-import SSRHeaders from '@/utils/ssrHeaders';
+import SSRHeaders from '@/lib/ssrHeaders';
 
 export default async function getSimilarTable(
 	filter: TListingFilterWithID,
-	req?: SSRreq
+	req?: SSRreq,
 ): Promise<TListingReturnFilter[]> {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_SERVER_URL}/listing/filter/getSimilarPriceRange`,
@@ -18,7 +18,7 @@ export default async function getSimilarTable(
 			},
 			body: JSON.stringify({ filter }),
 			credentials: 'include',
-		}
+		},
 	);
 	const resp = await response.json();
 	return resp.data.data;

@@ -1,12 +1,12 @@
 import SSRreq from '@/types/SSRreq';
-import SSRHeaders from '@/utils/ssrHeaders';
+import SSRHeaders from '@/lib/ssrHeaders';
 
 export default async function getHomeListings(
 	locality: string,
 	state: string,
 	city: string,
 	count: number,
-	req?: SSRreq
+	req?: SSRreq,
 ) {
 	try {
 		//ping the api route with the location
@@ -14,10 +14,10 @@ export default async function getHomeListings(
 			`${process.env.NEXT_PUBLIC_SERVER_URL}/listing/topSellingHome`,
 			{
 				method: 'POST',
-				body: JSON.stringify({ locality,state,city, count }),
+				body: JSON.stringify({ locality, state, city, count }),
 				credentials: 'include',
 				...SSRHeaders(req),
-			}
+			},
 		);
 		const json = await res.json();
 		return json.data;

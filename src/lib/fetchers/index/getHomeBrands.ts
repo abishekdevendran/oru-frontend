@@ -1,5 +1,5 @@
 import SSRreq from '@/types/SSRreq';
-import SSRHeaders from '@/utils/ssrHeaders';
+import SSRHeaders from '@/lib/ssrHeaders';
 
 export default async function getHomeBrands(req?: SSRreq) {
 	try {
@@ -10,7 +10,7 @@ export default async function getHomeBrands(req?: SSRreq) {
 				method: 'GET',
 				credentials: 'include',
 				...SSRHeaders(req),
-			}
+			},
 		);
 		const json = await res.json();
 		return json.dataObject;
