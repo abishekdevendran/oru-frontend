@@ -17,6 +17,8 @@
 		"paths": {
 			"@/env": ["./config/env.mjs"],
 			"@/config/*": ["./config/*"],
+			"@/fetchers/*": ["./src/lib/fetchers/*"],
+			"@/store/*": ["./src/lib/store/*"],
 			"@/*": ["./src/*"]
 		}
 	},

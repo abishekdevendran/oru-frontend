@@ -1,10 +1,17 @@
-import React from 'react'
-import env from '@/env'
+import React from 'react';
+import Navbar from '@/components/Navbar';
+import { NextSeo } from 'next-seo';
 
 const _index = () => {
-  return (
-    <div>{env.NEXT_PUBLIC_GEOCODE_API_KEY}</div>
-  )
-}
+	return (
+		<>
+			<NextSeo
+				title="Home | ORUphones"
+				description="ORUphones landing page"
+			/>
+			<Navbar />
+		</>
+	);
+};
 
-export default _index
+export default _index;

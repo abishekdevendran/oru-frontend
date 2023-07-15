@@ -1,10 +1,19 @@
 import './config/env.mjs';
-import withPWA from 'next-pwa';
 /** @type {import('next').NextConfig} */
 // wrap bundle-analyzer require with process.env check
 const withBundleAnalyzer = process.env.ANALYZE
 	? (await import('@next/bundle-analyzer')).default({ enabled: true })
 	: (a) => a;
+
+const withPWA =
+	process.env.NODE_ENV === 'production'
+		? (await import('next-pwa')).default({
+				disable: process.env.NODE_ENV === 'production' ? false : true,
+				dest: 'public',
+				register: true,
+				skipWaiting: true,
+		  })
+		: (a) => a;
 
 const securityHeaders = [
 	{
@@ -33,12 +42,7 @@ const securityHeaders = [
 	},
 ];
 
-export default withPWA({
-	disable: process.env.NODE_ENV === 'production' ? false : true,
-	dest: 'public',
-	register: true,
-	skipWaiting: true,
-})(
+export default withPWA(
 	withBundleAnalyzer({
 		reactStrictMode: true,
 		transpilePackages: ['jotai-devtools'],

@@ -12,6 +12,7 @@ import { DevTools } from 'jotai-devtools';
 import { DefaultSeo } from 'next-seo';
 import { QCOptions, SEO } from '@/config/_index';
 import Head from 'next/head';
+import GlobalLoading from '@/components/Popups/GlobalLoading';
 
 export default function App({
 	Component,
@@ -29,7 +30,8 @@ export default function App({
 							content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
 						/>
 					</Head>
-					<Component {...pageProps} />;
+					<GlobalLoading />
+					<Component {...pageProps} />
 					<DefaultSeo {...SEO} />
 				</Provider>
 			</Hydrate>
