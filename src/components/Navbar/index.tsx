@@ -25,12 +25,12 @@ export default function Index({
 	return (
 		<nav
 			className={cn(
-				'nav flex items-center justify-between gap-4 lg:gap-6 h-16 w-full bg-secondary p-4',
+				'nav flex items-center justify-between gap-4 lg:gap-6 h-16 w-full bg-secondary max-lg:py-4 lg:p-4',
 				className,
 			)}
 			{...props}
 		>
-			<div className="container flex items-center justify-between w-full h-full">
+			<div className="flex items-center justify-between w-full h-full">
 				<div className="navLeft flex items-center justify-between lg:gap-4 h-full">
 					{!useResponsive('lg') && (
 						<Button
@@ -64,7 +64,7 @@ export default function Index({
 						<>
 							<Button
 								variant={'outline'}
-								className="rounded-full"
+								className="rounded-full w-36"
 								onClick={() => setIsLoginOpen(true)}
 							>
 								Login/SignUp
@@ -76,7 +76,7 @@ export default function Index({
 					)}
 					<Button
 						variant={'default'}
-						className="hidden lg:block rounded-full bg-yellow text-black"
+						className="hidden lg:block rounded-full bg-yellow text-black w-36"
 					>
 						Sell Your Phone
 					</Button>
