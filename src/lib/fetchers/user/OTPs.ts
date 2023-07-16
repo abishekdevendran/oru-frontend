@@ -20,6 +20,9 @@ async function otpCreate({
 		}
 	);
 	const data = await response.json();
+	if(data.error){
+		throw new Error(data.error)
+	}
 	return data;
 }
 async function otpValidate({
@@ -65,6 +68,9 @@ async function otpValidate({
 		}
 	);
 	const data = await response.json();
+	if (data.error) {
+		throw new Error(data.error);
+	}
 	return data;
 }
 

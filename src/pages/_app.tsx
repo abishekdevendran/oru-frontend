@@ -13,6 +13,16 @@ import { DefaultSeo } from 'next-seo';
 import { QCOptions, SEO } from '@/config/_index';
 import Head from 'next/head';
 import GlobalLoading from '@/components/Popups/GlobalLoading';
+import { Poppins } from 'next/font/google';
+import UserInit from '@/lib/providers/UserInit';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const poppins = Poppins({
+	subsets: ['latin'],
+	weight: ['100', '400', '800'],
+	variable: '--font-poppins',
+});
 
 export default function App({
 	Component,
@@ -30,9 +40,13 @@ export default function App({
 							content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
 						/>
 					</Head>
+					<UserInit />
 					<GlobalLoading />
-					<Component {...pageProps} />
+					<main className={`${poppins.variable} font-poppins`}>
+						<Component {...pageProps} />
+					</main>
 					<DefaultSeo {...SEO} />
+					<ToastContainer />
 				</Provider>
 			</Hydrate>
 		</QueryClientProvider>
