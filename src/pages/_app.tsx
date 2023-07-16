@@ -44,9 +44,9 @@ export default function App({
 					<GlobalLoading />
 					<main className={`${poppins.variable} font-poppins`}>
 						<Component {...pageProps} />
+						<ToastContainer />
 					</main>
 					<DefaultSeo {...SEO} />
-					<ToastContainer />
 				</Provider>
 			</Hydrate>
 		</QueryClientProvider>

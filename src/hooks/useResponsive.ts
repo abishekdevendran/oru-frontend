@@ -10,6 +10,8 @@ export default function useResponsive(keys: 'sm' | 'md' | 'lg' | 'xl' | '2xl') {
 		const mediaQuery = window.matchMedia(
 			`(min-width: ${fullConfig[keys as keyof typeof fullConfig]})`,
 		);
+		// before the first render, we need to check the screen size
+		setScreen(mediaQuery.matches);
 		const listener = () => setScreen(mediaQuery.matches);
 		mediaQuery.addEventListener('change', listener);
 		return () => mediaQuery.removeEventListener('change', listener);

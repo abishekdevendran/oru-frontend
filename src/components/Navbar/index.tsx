@@ -9,6 +9,7 @@ import { Loader, MapPin, Menu } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import React from 'react';
+import UserPanel from './sections/user';
 
 const LoginPopup = dynamic(() => import('@/components/Popups/LoginPopup'), {
 	ssr: false,
@@ -58,7 +59,7 @@ export default function Index({
 						<MapPin />
 					</Button>
 					{isUserLoading && <Loader className="animate-spin" />}
-					{!isUserLoading && isLoggedIn && <p>Logged In</p>}
+					{!isUserLoading && isLoggedIn && <UserPanel />}
 					{!isUserLoading && !isLoggedIn && (
 						<>
 							<Button
