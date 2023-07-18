@@ -25,7 +25,7 @@ export default function Index({
 	return (
 		<nav
 			className={cn(
-				'nav flex items-center justify-between gap-4 lg:gap-6 h-16 w-full bg-secondary max-lg:py-4 lg:p-4',
+				'nav fixed top-0 flex items-center justify-between gap-4 lg:gap-6 h-16 w-full bg-secondary max-lg:py-4 lg:p-4 z-10 bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border-gray-100',
 				className,
 			)}
 			{...props}
@@ -50,7 +50,7 @@ export default function Index({
 						className="h-full lg:h-[120%] w-auto"
 					/>
 				</div>
-				<div className="flex items-center justify-between gap-4">
+				<div className="flex items-center justify-between lg:gap-4">
 					<Button
 						variant={'ghost'}
 						className="flex items-center justify-between"
@@ -64,7 +64,7 @@ export default function Index({
 						<>
 							<Button
 								variant={'outline'}
-								className="rounded-full w-36"
+								className="rounded-full lg:w-36"
 								onClick={() => setIsLoginOpen(true)}
 							>
 								Login/SignUp

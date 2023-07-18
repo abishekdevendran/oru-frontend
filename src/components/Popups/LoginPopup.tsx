@@ -163,10 +163,16 @@ const LoginPopup = ({
 					<div className="flex flex-col items-center justify-center">
 						<Tabs value={tab} className="w-full">
 							<TabsList className="w-full flex items-center justify-center">
-								<TabsTrigger value="otpCreate" className="w-full">
+								<TabsTrigger
+									value="otpCreate"
+									className="w-full cursor-default"
+								>
 									Generate OTP
 								</TabsTrigger>
-								<TabsTrigger value="otpValidate" className="w-full">
+								<TabsTrigger
+									value="otpValidate"
+									className="w-full cursor-default"
+								>
 									Validate OTP
 								</TabsTrigger>
 							</TabsList>

@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-query';
 import type { AppProps } from 'next/app';
 import { useState } from 'react';
-import { Provider } from 'jotai';
+import { Provider, useAtomValue } from 'jotai';
 import { DevTools } from 'jotai-devtools';
 import { DefaultSeo } from 'next-seo';
 import { QCOptions, SEO } from '@/config/_index';
@@ -17,6 +17,7 @@ import { Poppins } from 'next/font/google';
 import UserInit from '@/lib/providers/UserInit';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import loadingAtom from '@/store/loading';
 
 const poppins = Poppins({
 	subsets: ['latin'],
@@ -29,6 +30,7 @@ export default function App({
 	pageProps,
 }: AppProps<{ dehydratedState: DehydratedState }>) {
 	const [queryClient] = useState(() => new QueryClient(QCOptions));
+	const isLoading = useAtomValue(loadingAtom);
 	return (
 		<QueryClientProvider client={queryClient}>
 			<Hydrate state={pageProps.dehydratedState}>
@@ -41,7 +43,7 @@ export default function App({
 						/>
 					</Head>
 					<UserInit />
-					<GlobalLoading />
+					{isLoading && <GlobalLoading />}
 					<main className={`${poppins.variable} font-poppins`}>
 						<Component {...pageProps} />
 						<ToastContainer />
