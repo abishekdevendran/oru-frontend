@@ -53,7 +53,7 @@ export default function Index({
 				<div className="flex items-center justify-between lg:gap-4">
 					<Button
 						variant={'ghost'}
-						className="flex items-center justify-between"
+						className="flex items-center justify-between rounded-full"
 					>
 						{readLocation}
 						<MapPin />

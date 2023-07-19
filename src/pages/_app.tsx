@@ -13,7 +13,7 @@ import { DefaultSeo } from 'next-seo';
 import { QCOptions, SEO } from '@/config/_index';
 import Head from 'next/head';
 import GlobalLoading from '@/components/Popups/GlobalLoading';
-import { Poppins } from 'next/font/google';
+import { Inter, Poppins } from 'next/font/google';
 import UserInit from '@/lib/providers/UserInit';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,6 +23,12 @@ const poppins = Poppins({
 	subsets: ['latin'],
 	weight: ['100', '400', '800'],
 	variable: '--font-poppins',
+});
+
+const inter = Inter({
+	subsets: ['latin'],
+	weight: ['100', '400', '800'],
+	variable: '--font-inter',
 });
 
 export default function App({
@@ -44,7 +50,9 @@ export default function App({
 					</Head>
 					<UserInit />
 					{isLoading && <GlobalLoading />}
-					<main className={`${poppins.variable} font-poppins`}>
+					<main
+						className={`${poppins.variable} ${inter.variable} font-poppins`}
+					>
 						<Component {...pageProps} />
 						<ToastContainer />
 					</main>

@@ -17,8 +17,24 @@ const GlobalLoading = () => {
 	const [isOpen, setIsOpen] = useAtom(loadingAtom);
 	// if route changes, close the dialog
 	useEffect(() => {
+		router.events.on('routeChangeStart', (url) => {
+			if (!isOpen.isLoading) {
+				setIsOpen({
+					isLoading: true,
+					reason: `Navigating to ${url}...}`,
+				});
+			}
+		});
 		router.events.on('routeChangeComplete', () => {
-			if (isOpen) {
+			if (isOpen.isLoading) {
+				setIsOpen({
+					isLoading: false,
+					reason: undefined,
+				});
+			}
+		});
+		router.events.on('routeChangeError', () => {
+			if (isOpen.isLoading) {
 				setIsOpen({
 					isLoading: false,
 					reason: undefined,

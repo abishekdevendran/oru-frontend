@@ -1,6 +1,5 @@
 type TListingFilter = {
 	ram?: string[];
-	listingLocation?: string;
 	latitude? : number;
 	longitude? : number;
 	locality? : string;
