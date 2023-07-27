@@ -3,7 +3,7 @@ import useResponsive from '@/hooks/useResponsive';
 import useUser from '@/hooks/useUser';
 import loadingAtom from '@/lib/store/loading';
 import { cn } from '@/lib/utils';
-import { locationAtom } from '@/store/location';
+import readLocationAtom, { locationAtom } from '@/store/location';
 import { useAtomValue, useSetAtom } from 'jotai';
 import { Loader, MapPin, Menu } from 'lucide-react';
 import dynamic from 'next/dynamic';
@@ -19,7 +19,7 @@ export default function Index({
 	...props
 }: React.HTMLAttributes<HTMLElement>) {
 	const setIsLoading = useSetAtom(loadingAtom);
-	const readLocation = useAtomValue(locationAtom);
+	const readLocation = useAtomValue(readLocationAtom);
 	const [isLoginOpen, setIsLoginOpen] = React.useState(false);
 	const { isUserLoading, isLoggedIn } = useUser();
 	return (
@@ -50,7 +50,7 @@ export default function Index({
 						className="h-full lg:h-[120%] w-auto"
 					/>
 				</div>
-				<div className="flex items-center justify-between lg:gap-4">
+				<div className="flex items-center justify-between lg:gap-4 mr-2">
 					<Button
 						variant={'ghost'}
 						className="flex items-center justify-between rounded-full"

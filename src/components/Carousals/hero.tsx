@@ -22,7 +22,7 @@ const Hero = () => {
 		spaceBetween: 50,
 	};
 	return (
-		<div className='w-full h-96'>
+		<div className='w-full h-[26rem]'>
 			<Carousal slides={slides} />
 		</div>
 	);

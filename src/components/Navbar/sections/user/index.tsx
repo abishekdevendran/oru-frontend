@@ -18,24 +18,19 @@ const Index = () => {
 	if (!isLoggedIn) return null;
 	return (
 		<div className="flex items-center justify-around gap-2">
-			<Button variant={'ghost'} className="p-1">
+			<Button variant={'ghost'} className="p-1 rounded-full aspect-square">
 				<Heart />
 			</Button>
-			<Button variant={'ghost'} className="p-1">
+			<Button variant={'ghost'} className="p-1 rounded-full aspect-square">
 				<Bell />
 			</Button>
 			<DropdownMenu>
-				<DropdownMenuTrigger>
-					<Button
-						variant={'ghost'}
-						className="flex items-center justify-center p-0"
-					>
-						<Avatar>
-							<AvatarImage src={user?.profilePicPath} />
-							<AvatarFallback>CN</AvatarFallback>
-						</Avatar>
-						<ChevronDown size={15} />
-					</Button>
+				<DropdownMenuTrigger className="flex items-center justify-center">
+					<Avatar>
+						<AvatarImage src={user?.profilePicPath} />
+						<AvatarFallback>CN</AvatarFallback>
+					</Avatar>
+					<ChevronDown size={15} />
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
 					<DropdownMenuLabel>My Account</DropdownMenuLabel>
