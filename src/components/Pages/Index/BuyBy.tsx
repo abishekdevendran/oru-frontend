@@ -6,13 +6,17 @@ import {
 	Sparkles,
 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const BuyBy = () => {
 	return (
 		<section className="topBrands w-full container my-8">
 			<div className="gridContainer w-full grid lg:grid-cols-2 grid-cols-1 lg:grid-rows-1 grid-rows-2 gap-2 p-2 lg:aspect-[2/1] aspect-[1/2]">
-				<div className="bestSellingCard shadow-xl col-span-1 row-span-1 bg-black rounded-3xl aspect-square">
+				<Link
+					className="bestSellingCard shadow-xl col-span-1 row-span-1 bg-black rounded-3xl aspect-square hover:scale-105"
+					href={'/bestDeals'}
+				>
 					<span className="flex gap-2 items-center justify-center text-center h-1/3 text-white font-poppins text-4xl font-bold">
 						Best Selling Phones <HelpingHand size={40} />
 					</span>
@@ -23,9 +27,12 @@ const BuyBy = () => {
 						height={500}
 						className="w-full h-2/3 p-2 rounded-3xl object-fill"
 					/>
-				</div>
+				</Link>
 				<div className="gridContainer w-full grid grid-cols-2 grid-rows-2 gap-2 aspect-square]">
-					<div className="VerifiedCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square">
+					<Link
+						className="VerifiedCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square hover:scale-105"
+						href={'/bestDeals?verified=true'}
+					>
 						<span className="flex gap-2 items-center justify-center text-center h-1/3 font-poppins font-semibold tracking-tighter text-2xl">
 							Verified Phones <BadgeCheck size={20} />
 						</span>
@@ -36,8 +43,11 @@ const BuyBy = () => {
 							height={500}
 							className="w-full h-2/3 p-2 rounded-3xl object-cover object-top"
 						/>
-					</div>
-					<div className="LikeNewCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square">
+					</Link>
+					<Link
+						className="LikeNewCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square hover:scale-105"
+						href={'/bestDeals?minPrice=10000&maxPrice=30000'}
+					>
 						<span className="flex gap-2 items-center justify-center text-center h-1/3 font-poppins font-semibold tracking-tighter text-2xl">
 							Like New Condition <Sparkles size={20} />
 						</span>
@@ -48,8 +58,11 @@ const BuyBy = () => {
 							height={500}
 							className="w-full h-2/3 p-2 rounded-3xl object-cover"
 						/>
-					</div>
-					<div className="WarrantyCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square">
+					</Link>
+					<Link
+						className="WarrantyCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square hover:scale-105"
+						href={'/bestDeals?warranty="all'}
+					>
 						<span className="flex gap-2 items-center justify-center text-center h-1/3 font-poppins font-semibold tracking-tighter text-2xl">
 							With Warranty <ShieldCheck size={20} />
 						</span>
@@ -60,36 +73,48 @@ const BuyBy = () => {
 							height={500}
 							className="w-full h-2/3 p-2 rounded-3xl object-cover"
 						/>
-					</div>
+					</Link>
 					<div className="PriceGridContainer aspect-square w-full grid grid-cols-2 grid-rows-2">
-						<div className="PriceCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square">
+						<Link
+							className="PriceCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square hover:scale-105"
+							href={'/bestDeals?minPrice=0&maxPrice=10000'}
+						>
 							<span className="h-full flex flex-col gap-2 items-center justify-center text-center font-poppins text-lg leading-none">
 								<span>Under</span>
 								<span className="font-semibold">₹10k</span>
 								<Coins size={20} />
 							</span>
-						</div>
-						<div className="PriceCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square">
+						</Link>
+						<Link
+							className="PriceCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square hover:scale-105"
+							href={'/bestDeals?minPrice=0&maxPrice=20000'}
+						>
 							<span className="h-full flex flex-col gap-2 items-center justify-center text-center font-poppins text-lg leading-none">
 								<span>Under</span>
 								<span className="font-semibold">₹20k</span>
 								<Coins size={20} />
 							</span>
-						</div>
-						<div className="PriceCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square">
+						</Link>
+						<Link
+							className="PriceCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square hover:scale-105"
+							href={'/bestDeals?minPrice=10000&maxPrice=30000'}
+						>
 							<span className="h-full flex flex-col gap-2 items-center justify-center text-center font-poppins text-lg leading-none">
 								<span>Under</span>
 								<span className="font-semibold">₹30k</span>
 								<Coins size={20} />
 							</span>
-						</div>
-						<div className="PriceCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square">
+						</Link>
+						<Link
+							className="PriceCard shadow-xl col-span-1 row-span-1 rounded-3xl aspect-square hover:scale-105"
+							href={'/bestDeals?minPrice=30000&maxPrice=50000'}
+						>
 							<span className="h-full flex flex-col gap-2 items-center justify-center text-center font-poppins text-lg leading-none">
 								<span>Under</span>
 								<span className="font-semibold">₹50k</span>
 								<Coins size={20} />
 							</span>
-						</div>
+						</Link>
 					</div>
 				</div>
 			</div>
