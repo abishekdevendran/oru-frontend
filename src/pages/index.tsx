@@ -21,7 +21,6 @@ type TProps = {
 export const getStaticProps: GetStaticProps<TProps> = async (context) => {
 	try {
 		const brands = await getHomeBrands();
-		console.log(brands);
 		return {
 			props: {
 				brands:

@@ -29,6 +29,7 @@ const BrandCard = ({ brand }: { brand: TBrand }) => {
 };
 
 const TopBrands = ({ brands }: { brands: TBrand[] | null }) => {
+	if (!brands) return null;
 	return (
 		<section className="topBrands w-full container py-8">
 			<div className="flex items-center justify-between gap-4">
