@@ -1,11 +1,17 @@
-import { BadgeCheck, Coins, HelpingHand, ShieldCheck, Sparkles } from 'lucide-react';
+import {
+	BadgeCheck,
+	Coins,
+	HelpingHand,
+	ShieldCheck,
+	Sparkles,
+} from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
 
 const BuyBy = () => {
 	return (
 		<section className="topBrands w-full container my-8">
-			<div className="gridContainer w-full grid grid-cols-2 grid-rows-1 gap-2 p-2 aspect-[2/1]">
+			<div className="gridContainer w-full grid lg:grid-cols-2 grid-cols-1 lg:grid-rows-1 grid-rows-2 gap-2 p-2 lg:aspect-[2/1] aspect-[1/2]">
 				<div className="bestSellingCard shadow-xl col-span-1 row-span-1 bg-black rounded-3xl aspect-square">
 					<span className="flex gap-2 items-center justify-center text-center h-1/3 text-white font-poppins text-4xl font-bold">
 						Best Selling Phones <HelpingHand size={40} />
