@@ -21,7 +21,7 @@ const GlobalLoading = () => {
 			if (!isOpen.isLoading) {
 				setIsOpen({
 					isLoading: true,
-					reason: `Navigating to ${url}...}`,
+					reason: `Navigating to ${url}...`,
 				});
 			}
 		});

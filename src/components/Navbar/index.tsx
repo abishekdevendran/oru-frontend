@@ -76,7 +76,7 @@ export default function Index({
 					)}
 					<Button
 						variant={'default'}
-						className="hidden lg:block rounded-full bg-yellow text-black w-36"
+						className="hidden lg:block rounded-full w-36"
 					>
 						Sell Your Phone
 					</Button>

@@ -5,7 +5,7 @@ export default async function getHomeBrands(req?: SSRreq): Promise<
 	{
 		_id: string;
 		displayOrder: number;
-		name: string;
+		make: string;
 		imagePath: string;
 	}[]
 > {
