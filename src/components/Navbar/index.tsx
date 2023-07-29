@@ -25,7 +25,7 @@ export default function Index({
 	return (
 		<nav
 			className={cn(
-				'nav fixed top-0 flex items-center justify-between gap-4 lg:gap-6 h-16 w-full bg-secondary max-lg:py-4 lg:p-4 z-10 bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border-gray-100',
+				'nav fixed top-0 flex items-center justify-between gap-4 lg:gap-6 h-16 w-[calc(100%-var(--removed-body-scroll-bar-size,0px))] bg-secondary max-lg:py-4 lg:p-4 z-10 bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border-gray-100',
 				className,
 			)}
 			{...props}
