@@ -18,7 +18,7 @@ import UserInit from '@/lib/providers/UserInit';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import loadingAtom from '@/store/loading';
-import { createPortal } from 'react-dom';
+import Navbar from '@/components/Navbar';
 import { Portal } from '@/components/Pages/_app/Portal';
 
 const poppins = Poppins({
@@ -52,6 +52,7 @@ export default function App({
 							/>
 						</Head>
 						<UserInit />
+						<Navbar />
 						<main
 							className={`${poppins.variable} ${inter.variable} font-poppins`}
 						>

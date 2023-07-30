@@ -12,10 +12,18 @@ type TBrand = {
 };
 
 const BrandCard = ({ brand }: { brand: TBrand }) => {
+	let brandName = brand.make.toLowerCase();
+	if (brandName === 'oneplus') {
+		brandName = 'OnePlus';
+	} else {
+		const arr = brandName.split('');
+		arr[0] = arr[0].toUpperCase();
+		brandName = arr.join('');
+	}
 	return (
 		<Link
-			href={`/bestDeals/${brand.make.toLowerCase()}`}
-			className="hover:scale-110 first:ml-auto last:mr-auto aspect-square object-contain w-24 h-24 lg:w-32 md:h-32 flex items-center justify-center"
+			href={`/bestDeals/${brandName}`}
+			className="hover:scale-110 first:ml-auto last:mr-auto aspect-square object-contain w-24 h-24 lg:w-32 md:h-32 max-md:scale-75 flex items-center justify-center"
 		>
 			<Image
 				src={brand.imagePath}
@@ -31,7 +39,7 @@ const BrandCard = ({ brand }: { brand: TBrand }) => {
 const TopBrands = ({ brands }: { brands: TBrand[] | null }) => {
 	if (!brands) return null;
 	return (
-		<section className="topBrands w-full container py-8">
+		<section className="topBrands w-full container pt-8">
 			<div className="flex items-center justify-between gap-4">
 				<span className="font-poppins text-3xl font-semibold tracking-tighter">
 					Top Brands
