@@ -18,7 +18,7 @@ const SideBar = () => {
 	return (
 		<Sheet>
 			<SheetTrigger>
-				<Menu className="px-4 w-full" />
+				<Menu className="max-lg:pr-2 lg:px-4 w-full" />
 			</SheetTrigger>
 			<SheetContent side={'left'}>
 				<SheetHeader>

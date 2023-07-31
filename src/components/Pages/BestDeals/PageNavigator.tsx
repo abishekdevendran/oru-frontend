@@ -7,7 +7,7 @@ const PageNavigator = () => {
 	const router = useRouter();
 	const { make, model } = router.query;
 	return (
-		<span className="container flex mt-4">
+		<span className="container flex my-4">
 			<Link href={`/`} className="underline">
 				Home Page
 			</Link>

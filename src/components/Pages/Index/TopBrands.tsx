@@ -44,15 +44,13 @@ const TopBrands = ({ brands }: { brands: TBrand[] | null }) => {
 				<span className="font-poppins text-3xl font-semibold tracking-tighter">
 					Top Brands
 				</span>
-				<Button variant="link">
-					<Link
-						href="/brands"
-						className="flex gap-2 items-center justify-center font-poppins font-semibold tracking-tighter"
-					>
-						View All
-						<ArrowRight size={12} />
-					</Link>
-				</Button>
+				<Link
+					href="/brands"
+					className="flex gap-2 items-center justify-center font-poppins font-semibold tracking-tighter"
+				>
+					View All
+					<ArrowRight size={12} />
+				</Link>
 			</div>
 			<div className="flexContainer flex items-center gap-1 max-w-full w-full py-4 overflow-x-auto">
 				{brands?.map((brand, index) => <BrandCard key={index} brand={brand} />)}

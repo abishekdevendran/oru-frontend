@@ -5,7 +5,6 @@ import getHomeBrands from '@/fetchers/index/getHomeBrands';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import TopBrands from '@/components/Pages/Index/TopBrands';
 import BuyBy from '@/components/Pages/Index/BuyBy';
-import Footer from '@/components/Footer';
 
 type TProps = {
 	brands:
@@ -48,7 +47,6 @@ const Index = ({ brands }: InferGetStaticPropsType<typeof getStaticProps>) => {
 			<Hero />
 			<TopBrands brands={brands} />
 			<BuyBy />
-			<Footer />
 		</>
 	);
 };

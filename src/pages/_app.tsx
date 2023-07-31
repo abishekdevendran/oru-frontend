@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import loadingAtom from '@/store/loading';
 import Navbar from '@/components/Navbar';
 import { Portal } from '@/components/Pages/_app/Portal';
+import Footer from '@/components/Footer';
 
 const poppins = Poppins({
 	subsets: ['latin'],
@@ -52,13 +53,15 @@ export default function App({
 							/>
 						</Head>
 						<UserInit />
-						<Navbar />
 						<main
 							className={`${poppins.variable} ${inter.variable} font-poppins`}
 						>
+							<Navbar />
 							{isLoading && <GlobalLoading />}
 							<Component {...pageProps} />
+							<Footer />
 						</main>
+
 						<DefaultSeo {...SEO} />
 					</Provider>
 				</Hydrate>

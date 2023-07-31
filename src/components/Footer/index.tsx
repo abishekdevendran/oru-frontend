@@ -34,9 +34,11 @@ const Footer = () => {
 	return (
 		<footer className="w-full">
 			{useResponsive('lg') && (
-				<div className="downloadApp w-full h-80 flex items-center justify-end">
-					<span className="flex flex-col items-center justify-center h-full ml-12">
-						<span>Get the OruPhones App</span>
+				<div className="downloadApp w-full h-80 flex items-center justify-end bg-[#EDEFFC]">
+					<span className="flex flex-col items-center justify-center h-full ml-12 mr-24">
+						<span className="font-poppins font-bold text-2xl lg:text-3xl text-center leading-tight tracking-tight">
+							Get the OruPhones App
+						</span>
 						<span className="h-1/2 w-full flex items-center justify-between">
 							<Image
 								src="/assets/Footer/playStore.svg"
@@ -56,14 +58,16 @@ const Footer = () => {
 							/>
 						</span>
 					</span>
-					<Image
-						src="/assets/Footer/vector.svg"
-						alt="Footer Vector"
-						width="0"
-						height="0"
-						sizes="100vw"
-						className="w-auto h-full"
-					/>
+					<span className="w-fit h-full flex justify-end">
+						<Image
+							src="/assets/Footer/vector.svg"
+							alt="Footer Vector"
+							width="0"
+							height="0"
+							sizes="100vw"
+							className="w-auto h-full"
+						/>
+					</span>
 				</div>
 			)}
 			<div className="newsLetter w-full py-16 flex flex-col gap-4 items-center justify-center bg-primary">
