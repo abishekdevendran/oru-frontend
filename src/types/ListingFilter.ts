@@ -1,10 +1,10 @@
 type TListingFilter = {
 	ram?: string[];
-	latitude? : number;
-	longitude? : number;
-	locality? : string;
-	state? : string;
-	city? : string;
+	latitude?: number;
+	longitude?: number;
+	locality?: string;
+	state?: string;
+	city?: string;
 	page?: number;
 	make?: string[];
 	model?: string[];
@@ -27,7 +27,8 @@ export type TListingFilterWithID = {
 	listingId: string;
 } & TListingFilter;
 
-export type TListingReturnFilter = {
+type ListingReturnFilter = {
+	_id: string;
 	vendorLogo: { fullImage: string; thumbImage: string }[];
 	externalSource: any;
 	color: string;
@@ -39,7 +40,8 @@ export type TListingReturnFilter = {
 	deviceCondition?: string;
 	// defaultImage?: string;
 	listingLocation?: string;
-	listingPrice?: number;
+	listingPrice?: string;
+	listingNumPrice?: number;
 	marketingName?: string;
 	model?: string;
 	make?: string;
@@ -53,6 +55,7 @@ export type TListingReturnFilter = {
 	}[];
 	defaultImage: {
 		fullImage: string;
+		_id: string;
 	};
 	isOtherVendor?: 'Y' | 'N';
 	imagePath: string;
@@ -81,9 +84,13 @@ export type TListingReturnFilter = {
 	vendorName?: string;
 	vendorImage?: string;
 	vendorLink?: string;
-	listingState?:string;
-	listingLocality?:string;
+	listingState?: string;
+	listingLocality?: string;
 };
+
+export type TListingReturnFilter<T extends 'res' | 'req'> = T extends 'res'
+	? Partial<ListingReturnFilter>
+	: Partial<Record<keyof ListingReturnFilter, -1 | 0 | 1>>;
 
 export type Tmodel = {
 	model: string;

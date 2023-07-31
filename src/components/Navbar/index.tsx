@@ -49,7 +49,7 @@ export default function NavBar({
 			)}
 			{...props}
 		>
-			<div className="flex items-center justify-between w-full h-full">
+			<div className="flex container items-center justify-between w-full h-full">
 				<div className="navLeft flex items-center justify-between lg:gap-4 h-full">
 					{!useResponsive('lg') && <SideBar />}
 					{
