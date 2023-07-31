@@ -1,26 +1,25 @@
 import { Button } from '@/components/ui/button';
 import useResponsive from '@/hooks/useResponsive';
 import useUser from '@/hooks/useUser';
-import loadingAtom from '@/lib/store/loading';
 import { cn } from '@/lib/utils';
-import readLocationAtom, { locationAtom } from '@/store/location';
+import readLocationAtom from '@/store/location';
 import { useAtomValue, useSetAtom } from 'jotai';
-import { Loader, MapPin, Menu } from 'lucide-react';
+import { Loader, MapPin } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import UserPanel from './sections/user';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import SideBar from '@/components/Navbar/SideBar';
 
 const LoginPopup = dynamic(() => import('@/components/Popups/LoginPopup'), {
 	ssr: false,
 });
-export default function Index({
+export default function NavBar({
 	className,
 	...props
 }: React.HTMLAttributes<HTMLElement>) {
-	const setIsLoading = useSetAtom(loadingAtom);
 	const readLocation = useAtomValue(readLocationAtom);
 	const [isLoginOpen, setIsLoginOpen] = React.useState(false);
 	const { isUserLoading, isLoggedIn } = useUser();
@@ -52,15 +51,7 @@ export default function Index({
 		>
 			<div className="flex items-center justify-between w-full h-full">
 				<div className="navLeft flex items-center justify-between lg:gap-4 h-full">
-					{!useResponsive('lg') && (
-						<Button
-							variant={'ghost'}
-							className="h-full"
-							onClick={() => setIsLoading(true)}
-						>
-							<Menu />
-						</Button>
-					)}
+					{!useResponsive('lg') && <SideBar />}
 					{
 						// if route is not home, render link
 						router.pathname === '/' ? (
