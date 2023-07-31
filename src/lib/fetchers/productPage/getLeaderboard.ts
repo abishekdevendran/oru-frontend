@@ -8,7 +8,7 @@ import SSRHeaders from '@/lib/ssrHeaders';
 export default async function getLeaderboard(
 	filter: TListingFilterWithID,
 	req?: SSRreq,
-): Promise<TListingReturnFilter[]> {
+): Promise<TListingReturnFilter<'res'>[]> {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_SERVER_URL}/listing/filter/getSimilarLeaderboard`,
 		{

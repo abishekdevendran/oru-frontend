@@ -2,7 +2,7 @@ import { TListingReturnFilter } from '../../types/ListingFilter';
 
 export default async function getListings(
 	listingIds: string[] | string
-): Promise<TListingReturnFilter[]> {
+): Promise<TListingReturnFilter<'res'>[]> {
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_SERVER_URL}/listing/listings`,
 		{

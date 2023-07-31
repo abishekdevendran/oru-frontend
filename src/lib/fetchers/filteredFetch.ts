@@ -9,11 +9,11 @@ export default async function getFilteredListings(
 	filter: TListingFilter,
 	isNotionalBestDeals: boolean = false,
 	req?: SSRreq,
-	returnFilter?: TListingReturnFilter
+	returnFilter?: TListingReturnFilter<'req'>,
 ): Promise<{
-	data: TListingReturnFilter[];
+	data: TListingReturnFilter<'res'>[];
 	totalCount?: number;
-	bestDeals?: TListingReturnFilter[];
+	bestDeals?: TListingReturnFilter<'res'>[];
 }> {
 	const content = {
 		filter,
@@ -28,7 +28,7 @@ export default async function getFilteredListings(
 			...SSRHeaders(req),
 			body: JSON.stringify(content),
 			credentials: 'include',
-		}
+		},
 	);
 	const resp = await response.json();
 	if (filter.page === 1) {
@@ -46,9 +46,9 @@ export default async function getFilteredListings(
 
 export async function getListingByID(
 	filter: TListingFilterWithID,
-	returnFilter?: TListingReturnFilter,
-	req?: SSRreq
-): Promise<TListingReturnFilter> {
+	returnFilter?: TListingReturnFilter<'req'>,
+	req?: SSRreq,
+): Promise<TListingReturnFilter<'res'>> {
 	const content = {
 		filter,
 		...(returnFilter && { returnFilter }),
@@ -60,7 +60,7 @@ export async function getListingByID(
 			...SSRHeaders(req),
 			body: JSON.stringify(content),
 			credentials: 'include',
-		}
+		},
 	);
 	const resp = await response.json();
 	return resp.data;
@@ -68,9 +68,9 @@ export async function getListingByID(
 
 export async function getSimilarListings(
 	filter: TListingFilterWithID,
-	returnFilter?: TListingReturnFilter,
-	req?: SSRreq
-): Promise<{ data: TListingReturnFilter[]; totalCount: number }> {
+	returnFilter?: TListingReturnFilter<'req'>,
+	req?: SSRreq,
+): Promise<{ data: TListingReturnFilter<'res'>[]; totalCount: number }> {
 	const content = {
 		filter,
 		...(returnFilter && { returnFilter }),
@@ -82,7 +82,7 @@ export async function getSimilarListings(
 			...SSRHeaders(req),
 			body: JSON.stringify(content),
 			credentials: 'include',
-		}
+		},
 	);
 	const resp = await response.json();
 	return resp.data;
