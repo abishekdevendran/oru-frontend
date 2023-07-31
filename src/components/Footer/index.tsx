@@ -1,35 +1,14 @@
 import useResponsive from '@/hooks/useResponsive';
 import Image from 'next/image';
 import React from 'react';
-import * as z from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
-import {
-	Form,
-	FormControl,
-	FormDescription,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 
-const formSchema = z.object({
-	email: z.string().email(),
-});
-
 const Footer = () => {
-	const form = useForm<z.infer<typeof formSchema>>({
-		resolver: zodResolver(formSchema),
-		defaultValues: {
-			email: '',
-		},
-	});
-	function onSubmit(values: z.infer<typeof formSchema>) {
-		console.log(values);
+	const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		console.log('Submitted');
 	}
 	return (
 		<footer className="w-full">
@@ -77,38 +56,18 @@ const Footer = () => {
 				<span className="font-poppins font-medium lg:text-lg w-4/5 lg:w-2/5 text-center leading-tight tracking-tight">
 					Sign up for our newsletter and stay updated
 				</span>
-				<Form {...form}>
-					<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-						<FormField
-							control={form.control}
-							name="email"
-							render={({ field }) => (
-								<FormItem>
-									<FormControl>
-										<span className="relative w-32">
-											<Input
-												placeholder="abc@123.com"
-												{...field}
-												className="w-full rounded-full"
-											/>
-											<Button
-												type="submit"
-												className="absolute right-0 top-0 rounded-full"
-												variant={'secondary'}
-											>
-												Submit
-											</Button>
-										</span>
-									</FormControl>
-									<FormDescription>
-										Your email will not be shared with anyone else.
-									</FormDescription>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
+				<span className="relative w-32">
+					<form onSubmit={submitHandler}>
+						<Input placeholder="abc@123.com" className="w-full rounded-full" />
+						<Button
+							type="submit"
+							className="absolute right-0 top-0 rounded-full"
+							variant={'secondary'}
+						>
+							Submit
+						</Button>
 					</form>
-				</Form>
+				</span>
 			</div>
 			<div className="bg-secondary w-full h-96 relative">
 				<div className="container h-full flex items-center justify-center">

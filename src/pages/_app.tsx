@@ -12,26 +12,46 @@ import { DevTools } from 'jotai-devtools';
 import { DefaultSeo } from 'next-seo';
 import { QCOptions, SEO } from '@/config/_index';
 import Head from 'next/head';
-import GlobalLoading from '@/components/Popups/GlobalLoading';
 import { Inter, Poppins } from 'next/font/google';
 import UserInit from '@/lib/providers/UserInit';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import loadingAtom from '@/store/loading';
-import Navbar from '@/components/Navbar';
 import { Portal } from '@/components/Pages/_app/Portal';
-import Footer from '@/components/Footer';
+import dynamic from 'next/dynamic';
+
+const ToastContainer = dynamic(
+	() => import('@/components/Pages/_app/ToastContainer'),
+	{
+		ssr: false,
+	},
+);
+
+const Navbar = dynamic(() => import('@/components/Navbar'), {
+	ssr: false,
+});
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+	ssr: false,
+});
+
+const GlobalLoading = dynamic(
+	() => import('@/components/Popups/GlobalLoading'),
+	{
+		ssr: false,
+	},
+);
 
 const poppins = Poppins({
 	subsets: ['latin'],
 	weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
 	variable: '--font-poppins',
+	display: 'swap',
 });
 
 const inter = Inter({
 	subsets: ['latin'],
 	weight: ['100', '400', '800'],
 	variable: '--font-inter',
+	display: 'swap',
 });
 
 export default function App({
@@ -61,7 +81,6 @@ export default function App({
 							<Component {...pageProps} />
 							<Footer />
 						</main>
-
 						<DefaultSeo {...SEO} />
 					</Provider>
 				</Hydrate>
