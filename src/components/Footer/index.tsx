@@ -15,6 +15,7 @@ import {
 	FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 
 const formSchema = z.object({
 	email: z.string().email(),
@@ -65,8 +66,8 @@ const Footer = () => {
 					/>
 				</div>
 			)}
-			<div className="w-full py-16 container flex flex-col gap-4 items-center justify-center bg-primary">
-				<span className="font-poppins font-bold text-2xl lg:text-3xl w-4/5 lg:w-2/5 text-center leading-tight tracking-tight">
+			<div className="newsLetter w-full py-16 flex flex-col gap-4 items-center justify-center bg-primary">
+				<span className="container font-poppins font-bold text-2xl lg:text-3xl w-4/5 lg:w-2/5 text-center leading-tight tracking-tight">
 					Get Notified About Our Latest Offers and Price Drops
 				</span>
 				<span className="font-poppins font-medium lg:text-lg w-4/5 lg:w-2/5 text-center leading-tight tracking-tight">
@@ -104,6 +105,30 @@ const Footer = () => {
 						/>
 					</form>
 				</Form>
+			</div>
+			<div className="bg-secondary w-full h-96 relative">
+				<div className="container h-full flex items-center justify-center">
+					<span className="iconContainer flex gap-2">
+						<span className="icon bg-white rounded-full aspect-square p-1">
+							<Facebook size={24} className="bg-white m-1 aspect-square" />
+						</span>
+						<span className="icon bg-white rounded-full aspect-square p-1">
+							<Instagram size={24} className="bg-white m-1 aspect-square" />
+						</span>
+						<span className="icon bg-white rounded-full aspect-square p-1">
+							<Linkedin size={24} className="bg-white m-1 aspect-square" />
+						</span>
+						<span className="icon bg-white rounded-full aspect-square p-1">
+							<Youtube size={24} className="bg-white m-1 aspect-square" />
+						</span>
+						<span className="icon bg-white rounded-full aspect-square p-1">
+							<Twitter size={24} className="bg-white m-1 aspect-square" />
+						</span>
+					</span>
+					<span className="absolute bottom-0 w-full text-center font-poppins text-sm tracking-tighter text-primary">
+						© OruPhones {new Date().getFullYear()}
+					</span>
+				</div>
 			</div>
 		</footer>
 	);
